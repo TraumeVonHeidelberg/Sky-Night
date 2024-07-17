@@ -1,5 +1,6 @@
 const body = document.body
 const darkModeSwitch = document.querySelector('.switch')
+const switchSound = document.getElementById('switch-sound')
 
 function getRandomPosition() {
 	const top = Math.random() * 100
@@ -35,6 +36,7 @@ const stars = () => document.querySelectorAll('.star')
 
 darkModeSwitch.addEventListener('click', () => {
 	if (darkModeSwitch.style.justifyContent == 'start') {
+		switchSound.play()
 		body.style.backgroundColor = '#111e36'
 		darkModeSwitch.style.justifyContent = 'end'
 		createStars() // Create new stars on switch to dark mode
@@ -42,6 +44,7 @@ darkModeSwitch.addEventListener('click', () => {
 			star.style.display = 'inline-block'
 		})
 	} else {
+		switchSound.pause()
 		body.style.backgroundColor = '#fff'
 		darkModeSwitch.style.justifyContent = 'start'
 		stars().forEach(star => {
